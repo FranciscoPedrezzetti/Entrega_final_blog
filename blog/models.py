@@ -7,6 +7,7 @@ from django.contrib.auth.models import User
 class Post(models.Model):
 
     name = models.CharField(max_length=60)
+    city = models.CharField(max_length=60)
     title = models.CharField(max_length=60, unique=True)
     subtitle = models.CharField(max_length=60)
     content = models.TextField()
