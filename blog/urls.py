@@ -5,7 +5,7 @@ from django.urls import path
 from blog.views import *
 from users.views import messages, delete_msg, new_message
 
-app_name = 'blogapp'
+app_name = 'blog'
 
 
 urlpatterns = [

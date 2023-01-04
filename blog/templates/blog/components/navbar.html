@@ -1,11 +1,11 @@
 <!-- Navbar icons -->
 <div class="w3-bar w3-black w3-border w3-padding-large">
 
-    <a href="{% url 'blogapp:Inicio' %}" class="w3-bar-item w3-button w3-blue"><i class="fa fa-plane"> Home</i></a>
-    <a href="{% url 'blogapp:Posts' %}" class="w3-bar-item w3-button"><i class="fa fa-list-ul"></i> Posts</a>
-    <a href="{% url 'blogapp:Promos' %}" class="w3-bar-item w3-button"><i class="fa fa-bookmark-o"></i> Promos</a>
+    <a href="{% url 'blog:Inicio' %}" class="w3-bar-item w3-button w3-blue"><i class="fa fa-plane"> Home</i></a>
+    <a href="{% url 'blog:Posts' %}" class="w3-bar-item w3-button"><i class="fa fa-list-ul"></i> Posts</a>
+   
  
-    <a href="{% url 'blogapp:About' %}" class="w3-bar-item w3-button"><i class="fa fa-info-circle"></i> About</a>
+    <a href="{% url 'blog:About' %}" class="w3-bar-item w3-button"><i class="fa fa-info-circle"></i> About</a>
 
     <!-- Dropdown list -->
     {% if user.is_authenticated %}
