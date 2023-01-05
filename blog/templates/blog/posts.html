@@ -1,4 +1,4 @@
-{% extends 'blogapp/index.html' %}
+{% extends 'blog/inicio.html' %}
 
 {% block main_content%}
 {% block posts %}
@@ -10,7 +10,7 @@
 </div>
 
 <!-- Form for search posts -->
-<form action="{% url 'blogapp:Posts' %}" method="get" class="w3-center">
+<form action="{% url 'blog:Posts' %}" method="get" class="w3-center">
 
     <h5 class="w3-indigo">{{city.title}}</h5>
     <p><b>{{search}}:</b></p>
@@ -18,7 +18,7 @@
 
     <!-- Only show if city was found -->
     {% if request.GET.city %}
-        <a button class="w3-button w3-round-large w3-button w3-indigo" href="{% url 'blogapp:Posts' %}"><i class="fa fa-list-ul"></i> Listar todo</a>
+        <a button class="w3-button w3-round-large w3-button w3-indigo" href="{% url 'blog:Posts' %}"><i class="fa fa-list-ul"></i> Listar todo</a>
     {% endif %}
 
 
@@ -63,8 +63,8 @@
                         <td> 
                             {% if request.user == post.author %}
                             <!-- Botones de tabla -->
-                            <a href="{% url 'blogapp:DeletePost' post.id %}" class="w3-button w3-round w3-indigo w3-small"><i class="fa fa-trash"></i> Borrar</a>
-                            <a href="{% url 'blogapp:EditPost' post.id %}" class="w3-button w3-round w3-indigo w3-small"><i class="fa fa-edit"></i> Editar</a>
+                            <a href="{% url 'blog:DeletePost' post.id %}" class="w3-button w3-round w3-indigo w3-small"><i class="fa fa-trash"></i> Borrar</a>
+                            <a href="{% url 'blog:EditPost' post.id %}" class="w3-button w3-round w3-indigo w3-small"><i class="fa fa-edit"></i> Editar</a>
                             {% endif %}
                         </td>
                     </tr>
@@ -81,7 +81,7 @@
 
 <!-- Botones -->
 <div class="w3-bar w3-padding-32">
-    <a button class="w3-button w3-round-large w3-button w3-large w3-indigo" href="{% url 'blogapp:NewPost' %}"><i class="fa fa-edit"></i> Nuevo Post</a>
+    <a button class="w3-button w3-round-large w3-button w3-large w3-indigo" href="{% url 'blog:NewPost' %}"><i class="fa fa-edit"></i> Nuevo Post</a>
     
 </div>
 

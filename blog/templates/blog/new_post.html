@@ -1,4 +1,4 @@
-{% extends 'blogapp/posts.html' %}
+{% extends 'blog/posts.html' %}
 
 {% block posts %}
 
@@ -19,7 +19,7 @@ Note that FILES will only contain data if the request method was POST
 and the that posted to the request had enctype="multipart/form-data". 
 Otherwise, FILES will be a blank dictionary-like object.) -->
 
-<form enctype="multipart/form-data" action="{% url 'blogapp:NewPost' %}" method="POST">
+<form enctype="multipart/form-data" action="{% url 'blog:NewPost' %}" method="POST">
     {% csrf_token %}
 
     <table class="w3-table w3-topbar w3-bottombar w3-border-indigo w3-round">
@@ -29,7 +29,7 @@ Otherwise, FILES will be a blank dictionary-like object.) -->
     <!-- Botones -->
     <div class="w3-bar w3-padding-32">
         <input button type="submit" class="w3-button w3-round-large w3-button w3-large w3-indigo" value="Agregar Post">
-        <a button type="button" class="w3-button w3-round-large w3-button w3-large w3-indigo" href=" {% url 'blogapp:Posts' %} ">Volver</button></a>
+        <a button type="button" class="w3-button w3-round-large w3-button w3-large w3-indigo" href=" {% url 'blog:Posts' %} ">Volver</button></a>
     </div>
 </form>
 
