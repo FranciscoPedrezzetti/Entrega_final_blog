@@ -48,8 +48,8 @@ def posts(request):
         context = {
             'name': 'name',
             'title': 'Posts',
-            'city': city,
-            'search': 'Buscar por ciudad',
+            'city': 'city',
+            'search': 'Buscar por localidad/ciudad',
             'posts': posts,
             'avatar': avatar,
         }
@@ -60,9 +60,10 @@ def posts(request):
         context = {
             'posts': posts,
             'name': 'name',
+            'city': 'city',
             'title': 'Posts',
             'subtitle': '¡El listado completo de nuestros posts!',
-            'search': 'Buscar por ciudad',
+            'search': 'Buscar por localidad/ciudad',
             'avatar': avatar,
         }
         return render(request, 'blog/posts.html', context)
@@ -128,6 +129,7 @@ def edit_post(request, post_id):
     context = {
         'title': 'Edit',
         'subtitle': post.title,
+        'city': 'city',
         'form': form,
         'avatar': avatar,
     }
@@ -216,6 +218,7 @@ def post_detail(request, post_id):
     context = {
         'title': 'Detail',
         'subtitle': post.title,
+        'city': 'city',
         'avatar': avatar,
         'post': post
     }

@@ -10,6 +10,7 @@ class NuevoPost(forms.ModelForm):
         model = Post  # Modelo del cual importa
         fields = [
             'name',
+            'city',
             'title',
             'subtitle',
             'content',
