@@ -83,7 +83,25 @@ def profile(request, user_id):
         avatar = avatar.avatar.url
     except:
         avatar = ''
+    if request.method != 'POST':
+        # No data submited. Paso formulario vacio
+        form = AvatarForm()
+    
+    else:
+        form = AvatarForm(request.POST, request.FILES)
 
+        if form.is_valid():
+            avatars = Avatar.objects.filter(user=user)
+
+            if len(avatars) > 0:
+                new_avatar = avatars[0]
+                new_avatar.avatar = form.cleaned_data['avatar']
+                new_avatar.save()
+            else:
+                new_avatar = Avatar(user=user, avatar=form.cleaned_data['avatar'])
+                new_avatar.save()
+        
+        return redirect(reverse('users:Profile', args=[id]))
     context = {
         'user': user,
         'avatar': avatar,
@@ -91,7 +109,7 @@ def profile(request, user_id):
     }
     return render(request, 'users/profile.html', context)
 
-@user_passes_test(lambda u: u.is_superuser)
+
 def update_avatar(request):
     """Update user's avatar."""
     

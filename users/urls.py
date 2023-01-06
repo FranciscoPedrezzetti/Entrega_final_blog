@@ -15,6 +15,6 @@ urlpatterns = [
     path('update/', update_profile, name='UpdateProfile'),
     path('update/avatar/', update_avatar, name='UpdateAvatar'),
     path('profile/<user_id>/', profile, name='Profile'),
-    
+            
 ]
 
