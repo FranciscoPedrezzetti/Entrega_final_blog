@@ -1,4 +1,5 @@
 {% extends 'blog/base.html' %}
+
 {% load static %}
 {% block main_content %}
 
@@ -17,7 +18,7 @@
     </div>
     {% else %}
     <div class="w3-card-4 w3-center w3-black w3-display-container">
-        <img src="{% static 'blog/img/empty_avatar.png' %}" class="w3-circle" height="400px" alt="avatar">
+        <img src=" {% static 'blog/img/empty_avatar.png' %} " class="w3-circle" height="400px" alt="avatar">
         <div class="w3-display-bottommiddle w3-large w3-black"><a class="w3-button w3-black w3-border" title="Agregar foto de perfil" href="{% url 'users:UpdateAvatar' %}"><i class="fa fa-file-image-o"></i></a></div>
     </div>
     {% endif %}

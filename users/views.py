@@ -1,21 +1,13 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login
 from django.urls.base import reverse
-# Decorators
 from django.contrib.auth.decorators import login_required
-# For make complex lookups (AND/OR)
 from django.db.models import Q
-
 from django.contrib.auth.decorators import user_passes_test
-
-# Defined User's models and forms
 from users.forms import RegisterForm, UpdateProfileForm, MessageForm, AvatarForm
 from users.models import Avatar, Message
 
-
-
 # Create your views here.
-
 
 def register(request):
     """Register a new user."""
@@ -99,7 +91,6 @@ def profile(request, user_id):
     }
     return render(request, 'users/profile.html', context)
 
-# Decorator only superusers can change the avatar (consigna)
 @user_passes_test(lambda u: u.is_superuser)
 def update_avatar(request):
     """Update user's avatar."""
@@ -193,7 +184,7 @@ def new_message(request):
             msg.sender = request.user
             msg.save()
 
-            return redirect('blogapp:Messages')
+            return redirect('blog:Messages')
     
     context = {
         'form': form,
@@ -211,8 +202,8 @@ def delete_msg(request, msg_id):
     try:
         msg = Message.objects.get(id=msg_id)
         msg.delete()
-        return redirect('blogapp:Messages')
+        return redirect('blog:Messages')
     # Si levanta una excepcion renderiza a la pagina de inicio
     except Exception as exc:
-        return redirect('blogapp:Inicio')
+        return redirect('blog:Inicio')
 
